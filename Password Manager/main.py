@@ -26,7 +26,7 @@ def generate_password():
 
     pyperclip.copy(final_password)
 
-# ---------------------------- SAVE PASSWORD ------------------------------- #
+# ---------------------------- SAVA PASSWORD ------------------------------- #
 
 def save():
     website = website_input.get()
@@ -56,6 +56,25 @@ def save():
             file.close()
             website_input.delete(0, END)
             password_input.delete(0, END)
+
+# ---------------------------- FIND PASSWORD ------------------------------- #
+
+def find_password():
+    try:
+        file = open("Password Manager/data.json", "r")
+        data = json.load(file)
+    except FileNotFoundError:
+        messagebox.showerror(title="Error", message="File not found")
+    else:
+        website = website_input.get()
+        try:
+            login_details = data[website]
+        except KeyError:
+            messagebox.showerror(title="Error", message="Website not found")
+        else:
+            messagebox.showinfo(title=website, message=f"Email: {login_details['email']} \nPassword: {login_details['password']}")
+    finally:
+        file.close
 
 # ---------------------------- UI SETUP ------------------------------- #
 window = Tk()
@@ -88,7 +107,7 @@ password_input.grid(column=1, row=3)
 #Buttons
 password_button = Button(text="Generate Password", width=14, command=generate_password)
 password_button.grid(column=2, row=3)
-search_button = Button(text="Search", width=14)
+search_button = Button(text="Search", width=14, command=find_password)
 search_button.grid(column=2, row=1)
 add_button = Button(text="Add", width=36, command=save)
 add_button.grid(column=1, row=4, columnspan=2)
