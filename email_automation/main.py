@@ -2,9 +2,10 @@ import smtplib
 import datetime as dt
 import random
 import pandas
+import os
 
 MY_EMAIL = "pythont50@gmail.com"
-MY_PASSWORD = "xeecyttyfxgwvixh"
+MY_PASSWORD = os.environ.get("MY_PASSWORD")
 FILE_NAMES = ["letter_1.txt", "letter_2.txt", "letter_3.txt"]
 
 
