@@ -16,6 +16,7 @@ month = now.month
 data = pandas.read_csv("email_automation/birthdays.csv")
 birthday_dict = data.to_dict("records")
 
+
 for person in birthday_dict:
     if person["month"] == month and person["day"] == day:
         random_letter = random.choice(FILE_NAMES)

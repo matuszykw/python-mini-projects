@@ -13,6 +13,7 @@ headers = {
     "X-USER-TOKEN": TOKEN,
 }
 
+
 def create_pixel():
     now = datetime.now()
     pixel_creation_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/{GRAPH_ID}"
@@ -24,6 +25,7 @@ def create_pixel():
     response = requests.post(pixel_creation_endpoint, json=pixel_params, headers=headers)
     print(response.text)
 
+
 def update_pixel():
     date = input("Enter the creation date of pixel(yyyyMMdd): ")
     hours = input("Enter the correct number of hours: ")
@@ -33,6 +35,7 @@ def update_pixel():
     }
     response = requests.put(update_endpoint, json=update_params, headers=headers)
     print(response.text)
+
 
 def delete_pixel():
     date = input("Enter the creation date of pixel(yyyyMMdd): ")

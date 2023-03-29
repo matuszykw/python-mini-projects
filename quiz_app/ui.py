@@ -42,6 +42,7 @@ class QuizInterface:
             self.true.config(state="disabled")
             self.false.config(state="disabled")
 
+
     def check_answer(self, answer):
         self.give_feedback(self.quiz.check_answer(answer))
 
