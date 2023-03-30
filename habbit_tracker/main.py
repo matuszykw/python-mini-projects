@@ -43,10 +43,12 @@ def delete_pixel():
     response = requests.delete(delete_endpoint, headers=headers)
     print(response.text)
 
+
 print("[1] Create pixel.")
 print("[2] Update pixel.")
 print("[3] Delete pixel.")
 choice = int(input("What do you want to do? "))
+
 
 if choice == 1:
     create_pixel()

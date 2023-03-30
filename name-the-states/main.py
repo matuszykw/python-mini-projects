@@ -6,15 +6,18 @@ screen.title("U.S States Game")
 image = "name-the-states/blank_states_img.gif"
 screen.addshape(image)
 
+
 turtle.shape(image)
 pen = turtle.Turtle()
 pen.penup()
 pen.hideturtle()
 
+
 data = pandas.read_csv("name-the-states/50_states.csv")
 states = data['state'].to_list()
 x_cor = data['x'].to_list()
 y_cor = data['y'].to_list()
+
 
 correct = 0
 guessed_states = []

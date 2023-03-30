@@ -14,12 +14,14 @@ except FileNotFoundError:
 else:
     to_learn = data.to_dict(orient="records")
 
+
 def next_card():
     global current_card
     current_card = random.choice(to_learn)
     canvas.itemconfig(card_title, text="Hiszpański", fill="black")
     canvas.itemconfig(card_word, text=current_card["Spanish"], fill="black")
     canvas.itemconfig(card_image, image=card_front_image)
+
 
 def is_known():
     to_learn.remove(current_card)
@@ -63,9 +65,5 @@ wrong_button = Button(image=wrong_button_image, highlightthickness=0, borderwidt
 wrong_button.grid(column=0, row=1)
 
 next_card()
-
-
-
-
 
 window.mainloop()
